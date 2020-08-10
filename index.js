@@ -1,10 +1,11 @@
 const fetch = require('node-fetch');
-const raspi = require('raspi');
+// const raspi = require('raspi');
 const gpio = require('raspi-gpio');
+const Raspi = require('raspi-io').RaspiIO;
 
 const five = require("johnny-five");
 const board = new five.Board({
-    io: new raspi()
+    io: new Raspi()
 });
 
 

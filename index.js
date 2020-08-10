@@ -2,9 +2,13 @@ const fetch = require('node-fetch');
 const raspi = require('raspi');
 const gpio = require('raspi-gpio');
 
+
 const key = "2cf1a5736af3359c73a7f38aea1c9965";
 const zip = "40601"
 
+// var Gpio = require('onoff').Gpio;
+// var LED = new Gpio(4, 'out');
+// LED.writeSync(1);
 
 
 raspi.init(() => {

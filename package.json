@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "johnny-five": "^2.0.0",
     "node-fetch": "^2.6.0",
     "onoff": "^6.0.0",
     "public-ip": "^4.0.2",

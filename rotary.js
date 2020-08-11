@@ -1,4 +1,5 @@
 const five = require('johnny-five');
+const Raspi = require('raspi-io').RaspiIO;
 const rotaryEncoder = require('johnny-five-rotary-encoder');
 
 const board = new five.Board({

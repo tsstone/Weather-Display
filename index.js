@@ -8,15 +8,7 @@ const board = new five.Board({
 
 
 const key = "2cf1a5736af3359c73a7f38aea1c9965";
-const zip = "40601"
-
-
-/* raspi.init(async () => {
-    const weather = await getWeather();
-    const shower = new gpio.DigitalOutput(7);
-    shower.write(0);
-});
- */
+const zip = "40601";
 
 // Run Board 
 board.on('ready', function() { 
@@ -29,6 +21,7 @@ board.on('ready', function() {
                 cols: 16
         });
         led.on(); 
+        getWeather();
         lcd.print("READY");
         this.repl.inject({ 
                 led: led,

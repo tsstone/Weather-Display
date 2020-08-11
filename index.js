@@ -32,9 +32,11 @@ board.on('ready', function() {
         lcd.clear();
         lcd.print("STARTING...");
         this.repl.inject({ 
+                led: led,
+                lcd: lcd,
                 display: function(text) {
                         lcd.clear();
-                        lcd.print(text);  
+                        lcd.print(text);
         }
     }); 
 });

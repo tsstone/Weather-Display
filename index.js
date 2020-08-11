@@ -29,9 +29,7 @@ board.on('ready', function() {
                 cols: 16
         });
         led.on(); 
-        lcd.clear();
-        lcd.noCursor();
-        lcd.print("STARTING...");
+        lcd.print("READY");
         this.repl.inject({ 
                 led: led,
                 lcd: lcd,

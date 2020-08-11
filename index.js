@@ -21,8 +21,9 @@ board.on('ready', function() {
                 cols: 16
         });
         led.on(); 
-        getWeather();
-        lcd.print("READY");
+        getWeather().then(weather => {
+            lcd.print(weather.weather.temp);
+        });
         this.repl.inject({ 
                 led: led,
                 lcd: lcd,
@@ -38,5 +39,6 @@ async function getWeather(){
     const weatherAPI = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${key}&units=imperial`);
     const weather = await weatherAPI.json();
     console.log(weather);
+    return weather;
 }
 

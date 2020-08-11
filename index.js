@@ -21,13 +21,20 @@ const zip = "40601"
 // Run Board 
 board.on('ready', function() { 
     // LED Pin variable 
-    const led = new five.Led(7); 
-    led.on(); 
-    this.repl.inject({ 
-        test: function() {
-                led.on();
-                led.brightness(1);
-                led.off();
+        const led = new five.Led(7); 
+    // I2C LCD, PCF8574T
+        const lcd = new five.LCD({ 
+                controller: "PCF8574T",
+                rows: 2,
+                cols: 16
+        });
+        led.on(); 
+        lcd.clear();
+        lcd.print("STARTING...");
+        this.repl.inject({ 
+                display: function(text) {
+                        lcd.clear();
+                        lcd.print(text);  
         }
     }); 
 });

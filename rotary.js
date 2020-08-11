@@ -7,9 +7,9 @@ const board = new five.Board({
 });
 
 board.on('ready', () => {
-    const upButton = new five.Button(11);
-    const downButton = new five.Button(13);
-    const pressButton = new five.Button(15);
+    const upButton = new five.Button("GPIO17");
+    const downButton = new five.Button("GPIO27");
+    const pressButton = new five.Button("GPIO22");
   
     rotaryEncoder({
       upButton,

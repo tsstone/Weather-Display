@@ -1,6 +1,4 @@
 const fetch = require('node-fetch');
-// const raspi = require('raspi');
-const gpio = require('raspi-gpio');
 const Raspi = require('raspi-io').RaspiIO;
 
 const five = require("johnny-five");
@@ -9,9 +7,6 @@ const board = new five.Board({
 });
 
 
-
-const ON = 1;
-const OFF = 0;
 const key = "2cf1a5736af3359c73a7f38aea1c9965";
 const zip = "40601"
 
@@ -29,20 +24,7 @@ board.on('ready', function() {
     const led = new five.Led(7); 
     led.on(); 
     this.repl.inject({ 
-            on: () => { 
-                    led.on(); 
-            }, 
-            off: () => { 
-                    led.stop().off(); 
-            }, 
-            strobe: () => { 
-                    led.stop().off(); 
-                    led.strobe(); 
-            }, 
-            blink: () => { 
-                    led.stop().off(); 
-                    led.blink(500); 
-            }, 
+        led: led
     }); 
 });
 async function getWeather(){

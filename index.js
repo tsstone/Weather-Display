@@ -22,7 +22,12 @@ board.on('ready', function() {
         });
         led.on(); 
         getWeather().then(weather => {
-            lcd.print(`T:${Math.round(weather.main.temp)}° | FL:${Math.round(weather.main.feels_like)}°`);
+            lcd.print(`T:${Math.round(weather.main.temp)} | FL:${Math.round(weather.main.feels_like)}`);
+            
+        }).catch(error => {
+            lcd.clear()
+            lcd.home()
+            lcd.print("ERROR")
         });
         this.repl.inject({ 
                 led: led,
@@ -35,10 +40,10 @@ board.on('ready', function() {
         }
     }); 
 });
+
 async function getWeather(){
     const weatherAPI = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${key}&units=imperial`);
     const weather = await weatherAPI.json();
-    console.log(weather);
+    //console.log(weather);
     return weather;
 }
-

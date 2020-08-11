@@ -22,7 +22,7 @@ board.on('ready', function() {
         });
         led.on(); 
         getWeather().then(weather => {
-            lcd.print(weather.main.temp);
+            lcd.print(`Temp: ${Math.round(weather.main.temp)}`);
         });
         this.repl.inject({ 
                 led: led,

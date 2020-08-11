@@ -24,7 +24,11 @@ board.on('ready', function() {
     const led = new five.Led(7); 
     led.on(); 
     this.repl.inject({ 
-        led: led
+        test: function() {
+                led.on();
+                led.brightness(1);
+                led.off();
+        }
     }); 
 });
 async function getWeather(){

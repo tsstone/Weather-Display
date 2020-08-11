@@ -36,7 +36,9 @@ board.on('ready', function() {
                 lcd: lcd,
                 display: function(text) {
                         lcd.clear();
+                        lcd.home()
                         lcd.print(text);
+                        lcd.cursor(1,20)
         }
     }); 
 });
